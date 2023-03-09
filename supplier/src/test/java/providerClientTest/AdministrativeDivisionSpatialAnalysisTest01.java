@@ -1,0 +1,110 @@
+package providerClientTest;
+
+import com.github.tgda.supplier.client.AnalysisProviderClient;
+import com.github.tgda.supplier.client.exception.AnalyseRequestFormatException;
+import com.github.tgda.supplier.client.exception.AnalysisEngineRuntimeException;
+import com.github.tgda.supplier.client.exception.ProviderClientInitException;
+import com.github.tgda.supplier.feature.communication.AnalyseResponseCallback;
+import com.github.tgda.supplier.feature.communication.messagePayload.AnalyseRequest;
+import com.github.tgda.supplier.feature.communication.messagePayload.AnalyseResponse;
+import com.github.tgda.supplier.feature.communication.messagePayload.ResponseDataset;
+import com.github.tgda.supplier.feature.communication.messagePayload.spatialAnalysis.AdministrativeDivisionSpatialCalculateRequest;
+import com.github.tgda.supplier.feature.communication.messagePayload.spatialAnalysis.SpatialCommonConfig;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+
+public class AdministrativeDivisionSpatialAnalysisTest01 {
+
+    public static void main(String[] args) throws AnalyseRequestFormatException {
+        AnalysisProviderClient analysisProviderClient = new AnalysisProviderClient("127.0.0.1",9999);
+        analysisProviderClient.openSession();
+
+        AdministrativeDivisionSpatialCalculateRequest administrativeDivisionSpatialCalculateRequest = new AdministrativeDivisionSpatialCalculateRequest();
+
+        administrativeDivisionSpatialCalculateRequest.setSubjectConception("firmData");
+        //administrativeDivisionSpatialCalculateRequest.setSampleValue(0.5);
+        administrativeDivisionSpatialCalculateRequest.setSampleValue(0.01);
+
+        String[] subjectReturnProperties = new String[1];
+        subjectReturnProperties[0] = "name";
+        administrativeDivisionSpatialCalculateRequest.setSubjectReturnProperties(subjectReturnProperties);
+
+        String[] administrativeDivisionReturnProperties = new String[2];
+        administrativeDivisionReturnProperties[0] = "TGDA_GEOSPATIALCODE";
+        administrativeDivisionReturnProperties[1] = "TGDA_GEOSPATIALCHINESENAME";
+        administrativeDivisionSpatialCalculateRequest.setAdministrativeDivisionReturnProperties(administrativeDivisionReturnProperties);
+
+        administrativeDivisionSpatialCalculateRequest.setPredicateType(SpatialCommonConfig.PredicateType.Within);
+        administrativeDivisionSpatialCalculateRequest.setGeospatialScaleGrade(SpatialCommonConfig.GeospatialScaleGrade.Township);
+        //administrativeDivisionSpatialCalculateRequest.setGeospatialScaleGrade(SpatialCommonConfig.GeospatialScaleGrade.County);
+        administrativeDivisionSpatialCalculateRequest.setGeospatialScaleLevel(SpatialCommonConfig.GeospatialScaleLevel.CountryLevel);
+
+        administrativeDivisionSpatialCalculateRequest.setResponseDataForm(AnalyseRequest.ResponseDataForm.DATA_SLICE);
+
+        try {
+            System.out.println(new Date());
+            AnalyseResponseCallback analyseResponseCallback = new AnalyseResponseCallback() {
+                @Override
+                public void onResponseReceived(Object analyseResponseObject) {
+
+                    System.out.println(new Date());
+                    System.out.println(analyseResponseObject);
+                    try {
+                        analysisProviderClient.closeSession();
+                    } catch (ProviderClientInitException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                @Override
+                public void onSuccessResponseReceived(AnalyseResponse analyseResponse) {
+                    System.out.println(analyseResponse);
+                    System.out.println(analyseResponse.getResponseUUID());
+                    System.out.println(analyseResponse.getResponseDateTime());
+                    System.out.println(analyseResponse.getResponseData());
+                    System.out.println("===================");
+                    System.out.println(analyseResponse.getRequestUUID());
+                    System.out.println(analyseResponse.getResponseDataForm());
+
+                    ResponseDataset responseDataset = (ResponseDataset)analyseResponse.getResponseData();
+                    Map<String,String> propertiesInfoMap =  responseDataset.getPropertiesInfo();
+                    ArrayList<HashMap<String,Object>> datalist = responseDataset.getDataList();
+                    System.out.println(propertiesInfoMap);
+
+                    if(analyseResponse.getResponseDataForm().equals(AnalyseRequest.ResponseDataForm.STREAM_BACK)){
+                        System.out.println(datalist.size());
+                        System.out.println(datalist.get(1000));
+                        for(HashMap<String,Object> currentDataRow : datalist){
+                            //System.out.println(currentDataRow);
+                        }
+                    }
+
+                    try {
+                        analysisProviderClient.closeSession();
+                    } catch (ProviderClientInitException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                @Override
+                public void onFailureResponseReceived(Throwable throwable) {
+                    System.out.println(throwable);
+                    System.out.println(new Date());
+                    try {
+                        analysisProviderClient.closeSession();
+                    } catch (ProviderClientInitException e) {
+                        e.printStackTrace();
+                    }
+                }
+            };
+
+            analysisProviderClient.sendAnalyseRequest(administrativeDivisionSpatialCalculateRequest,analyseResponseCallback,2000);
+
+        } catch (AnalysisEngineRuntimeException | ProviderClientInitException e) {
+            e.printStackTrace();
+        }
+    }
+}

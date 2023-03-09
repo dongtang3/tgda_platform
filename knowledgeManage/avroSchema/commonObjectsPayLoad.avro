@@ -1,0 +1,9 @@
+{
+  "namespace": "com.github.tgda",
+  "name": "InfoObjectsPayLoad",
+  "type": "record",
+  "fields": [
+    {"name": "metaInfo", "type": com.github.tgda.PayloadMetaInfo},
+    {"name": "payloadContent", "type": com.github.tgda.PayloadContent}
+  ]
+}

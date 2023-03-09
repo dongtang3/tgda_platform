@@ -1,0 +1,106 @@
+package com.github.tgda.engine.core.payload;
+
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+public class AnalyzableGraph {
+
+    private String graphName;
+    private GraphDegreeDistributionInfo graphDegreeDistribution;
+    private long conceptionEntityCount;
+    private long relationEntityCount;
+    private float graphDensity;
+    private Date createTime;
+    private Date lastModifyTime;
+    private Set<String> containsConceptionKinds;
+    private Set<String> containsRelationKinds;
+    private Map<String,List<AnalyzableGraphAttributeInfo>> conceptionKindsAttributesInfo;
+    private Map<String,List<AnalyzableGraphAttributeInfo>> relationKindsAttributesInfo;
+
+    public AnalyzableGraph(String graphName,Date createTime){
+        this.graphName = graphName;
+        this.createTime = createTime;
+    }
+
+    public String getGraphName() {
+        return graphName;
+    }
+
+    public GraphDegreeDistributionInfo getGraphDegreeDistribution() {
+        return graphDegreeDistribution;
+    }
+
+    public void setGraphDegreeDistribution(GraphDegreeDistributionInfo graphDegreeDistribution) {
+        this.graphDegreeDistribution = graphDegreeDistribution;
+    }
+
+    public long getEntityCount() {
+        return conceptionEntityCount;
+    }
+
+    public void setEntityCount(long conceptionEntityCount) {
+        this.conceptionEntityCount = conceptionEntityCount;
+    }
+
+    public long getRelationshipEntityCount() {
+        return relationEntityCount;
+    }
+
+    public void setRelationshipEntityCount(long relationEntityCount) {
+        this.relationEntityCount = relationEntityCount;
+    }
+
+    public float getGraphDensity() {
+        return graphDensity;
+    }
+
+    public void setGraphDensity(float graphDensity) {
+        this.graphDensity = graphDensity;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public Date getLastModifyTime() {
+        return lastModifyTime;
+    }
+
+    public void setLastModifyTime(Date lastModifyTime) {
+        this.lastModifyTime = lastModifyTime;
+    }
+
+    public Set<String> getContainsConceptionKinds() {
+        return containsConceptionKinds;
+    }
+
+    public void setContainsConceptionKinds(Set<String> containsConceptionKinds) {
+        this.containsConceptionKinds = containsConceptionKinds;
+    }
+
+    public Set<String> getContainsRelationKinds() {
+        return containsRelationKinds;
+    }
+
+    public void setContainsRelationKinds(Set<String> containsRelationKinds) {
+        this.containsRelationKinds = containsRelationKinds;
+    }
+
+    public Map<String,List<AnalyzableGraphAttributeInfo>> getConceptionKindsAttributesInfo() {
+        return conceptionKindsAttributesInfo;
+    }
+
+    public void setConceptionKindsAttributesInfo(Map<String,List<AnalyzableGraphAttributeInfo>> conceptionKindsAttributesInfo) {
+        this.conceptionKindsAttributesInfo = conceptionKindsAttributesInfo;
+    }
+
+    public Map<String,List<AnalyzableGraphAttributeInfo>> getRelationKindsAttributesInfo() {
+        return relationKindsAttributesInfo;
+    }
+
+    public void setRelationKindsAttributesInfo(Map<String,List<AnalyzableGraphAttributeInfo>> relationKindsAttributesInfo) {
+        this.relationKindsAttributesInfo = relationKindsAttributesInfo;
+    }
+}

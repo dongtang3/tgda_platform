@@ -1,0 +1,94 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="DOCG Core Realm API  test suite">
+    <test verbose="1" name="RealmTermFactoryTest">
+        <classes>
+            <class name="termTest.coreRealm.testcase.com.github.tgda.RealmTermFactoryTest"/>
+        </classes>
+    </test>
+    <test verbose="2" name="CoreRealmTest">
+        <classes>
+            <class name="termTest.coreRealm.testcase.com.github.tgda.CoreRealmTest"/>
+        </classes>
+    </test>
+    <test verbose="3" name="ConceptionKindTest">
+        <classes>
+            <class name="termTest.coreRealm.testcase.com.github.tgda.ConceptionKindTest"/>
+        </classes>
+    </test>
+    <test verbose="4" name="AttributesMeasurableTest">
+        <classes>
+            <class name="termTest.coreRealm.testcase.com.github.tgda.AttributesMeasurableTest"/>
+        </classes>
+    </test>
+    <test verbose="5" name="MetaAttributeFeatureSupportableTest">
+        <classes>
+            <class name="termTest.coreRealm.testcase.com.github.tgda.MetaAttributeFeatureSupportableTest"/>
+        </classes>
+    </test>
+    <test verbose="6" name="MetaConfigItemFeatureSupportableTest">
+        <classes>
+            <class name="termTest.coreRealm.testcase.com.github.tgda.MetaConfigItemFeatureSupportableTest"/>
+        </classes>
+    </test>
+    <test verbose="7" name="AttributesViewKindTest">
+        <classes>
+            <class name="termTest.coreRealm.testcase.com.github.tgda.AttributesViewKindTest"/>
+        </classes>
+    </test>
+    <test verbose="8" name="EntityQueryTest">
+        <classes>
+            <class name="termTest.coreRealm.testcase.com.github.tgda.EntityQueryTest"/>
+        </classes>
+    </test>
+    <test verbose="9" name="EntityRelationableTest">
+        <classes>
+            <class name="termTest.coreRealm.testcase.com.github.tgda.EntityRelationableTest"/>
+        </classes>
+    </test>
+    <test verbose="10" name="StatisticalAndEvaluableTest">
+        <classes>
+            <class name="termTest.coreRealm.testcase.com.github.tgda.StatisticalAndEvaluableTest"/>
+        </classes>
+    </test>
+    <test verbose="11" name="RelationKindTest">
+        <classes>
+            <class name="termTest.coreRealm.testcase.com.github.tgda.RelationKindTest"/>
+        </classes>
+    </test>
+    <test verbose="12" name="MultiConceptionKindsSupportableTest">
+        <classes>
+            <class name="termTest.coreRealm.testcase.com.github.tgda.MultiConceptionKindsSupportableTest"/>
+        </classes>
+    </test>
+    <test verbose="13" name="RelationAttachKindTest">
+        <classes>
+            <class name="termTest.coreRealm.testcase.com.github.tgda.RelationAttachKindTest"/>
+        </classes>
+    </test>
+    <test verbose="14" name="CrossKindDataOperatorTest">
+        <classes>
+            <class name="termTest.coreRealm.testcase.com.github.tgda.CrossKindDataOperatorTest"/>
+        </classes>
+    </test>
+    <test verbose="15" name="GeospatialScaleCalculableTest">
+        <classes>
+            <class name="termTest.coreRealm.testcase.com.github.tgda.GeospatialScaleCalculableTest"/>
+        </classes>
+    </test>
+    <test verbose="16" name="TimeFlowTest">
+        <classes>
+            <class name="termTest.coreRealm.testcase.com.github.tgda.TimeFlowTest"/>
+        </classes>
+    </test>
+    <test verbose="17" name="GeospatialTest">
+        <classes>
+            <class name="termTest.coreRealm.testcase.com.github.tgda.GeospatialTest"/>
+        </classes>
+    </test>
+    <!-- KindCacheableTest must be the last test case at anytime-->
+    <test verbose="18" name="KindCacheableTest">
+        <classes>
+            <class name="termTest.coreRealm.testcase.com.github.tgda.KindCacheableTest"/>
+        </classes>
+    </test>
+</suite>
