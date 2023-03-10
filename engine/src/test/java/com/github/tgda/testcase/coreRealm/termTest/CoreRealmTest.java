@@ -6,7 +6,7 @@ import com.github.tgda.engine.core.exception.EngineServiceRuntimeException;
 import com.github.tgda.engine.core.payload.TypeCorrelationInfo;
 import com.github.tgda.engine.core.payload.EntityStatisticsInfo;
 import com.github.tgda.engine.core.payload.TypeMetaInfo;
-import com.github.tgda.coreRealm.realmServiceCore.term.*;
+
 import com.github.tgda.engine.core.term.Engine;
 import com.github.tgda.engine.core.term.Type;
 import com.github.tgda.engine.core.term.spi.neo4j.termImpl.Neo4JTypeImpl;

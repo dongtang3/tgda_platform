@@ -11,11 +11,11 @@
 
 #### ➜ Overview 
 
-DOCG Data analysis platform based on Domain-Driven Design, A data analysis toolkit centered around graph data analysis and in-memory real-time computing technology. It can perform highly complex data analysis tasks using a business-oriented perspective, by utilizing capabilities such as relationship analysis, time analysis, and planar geographic spatial (GIS) analysis in a comprehensive manner that is easy to understand.
+TGDA platform based on Domain-Driven Design, A data analysis toolkit centered around graph data analysis and in-memory real-time computing technology. It can perform highly complex data analysis tasks using a business-oriented perspective, by utilizing capabilities such as relationship analysis, time analysis, and planar geographic spatial (GIS) analysis in a comprehensive manner that is easy to understand.
 
 #### ➜ Term 
 
-DOCG The business model of the data analysis platform uses the following terms to describe the concepts of various objects required to implement a business domain model. By combining the functions of these objects, all the data management and analysis-related business requirements for a specific domain model can be achieved.
+TGDA The business model of the data analysis platform uses the following terms to describe the concepts of various objects required to implement a business domain model. By combining the functions of these objects, all the data management and analysis-related business requirements for a specific domain model can be achieved.
 
 **Type**：Conceptual types refer to the types of any real or logical concepts that can be included in a specific domain model. It includes the type of all attribute view types that can be contained in objects of this type, as well as the type definitions of relationship attachment rules that can be performed on objects of this type.
 
